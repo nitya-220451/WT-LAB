@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Startup</title>
+</head>
+<body style="font-family: Arial; padding: 20px;">
+
+    <h1 align="center">My Startup</h1>
+
+    <!-- Text section with mouse events -->
+    <p id="startupInfo"
+       style="padding:10px; border: 1px solid #ccc; transition:0.3s;"
+       onmouseover="highlightText()"
+       onmouseout="removeHighlight()">
+       Click the button to see your startup info...
+    </p>
+
+    <!-- Main Action Buttons -->
+    <button onclick="changetext()">Change Startup Text</button>
+    <button onclick="addcontent()">Add Extra Content</button>
+    <button onclick="removecontent()">Remove Added Content</button>
+    <button onclick="applystyles()">Apply Styles</button>
+    <button onclick="togglestyles()">Toggle Styles</button>
+
+    <br><br>
+
+    <!-- Inline Style Buttons -->
+    <button onclick="changeColor()">Change Text Color</button>
+    <button onclick="changeSize()">Increase Font Size</button>
+    <button onclick="changeBackground()">Change Background</button>
+
+    <br><br>
+
+    <div id="extrasection"></div>
+
+    <hr><br>
+
+    <!-- Console Logging Form -->
+    <h3>Form 1: Console Logging</h3>
+    <form onsubmit="logForm(event)">
+        <input type="text" id="inputBox" placeholder="Type something..." required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr><br>
+
+    <!-- Validation Form -->
+    <h3>Form 2: Registration Form (No Reload)</h3>
+
+    <form onsubmit="validateForm(event)">
+        <label>Name:</label><br>
+        <input type="text" id="name" placeholder="Enter your name"><br><br>
+
+        <label>Email:</label><br>
+        <input type="text" id="email" placeholder="Enter your email"><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p id="errorMsg" style="color:red; font-weight:bold;"></p>
+
+    <hr><br>
+
+    <!-- PRINT BUTTON -->
+    <button onclick="window.print()">Print / Save Page as PDF</button>
+
+    <script>
+
+        // Variables
+        var officelocation = "Hyderabad";
+        const startupname = "Nitya Ltd";
+        const founder = "Nitya";
+        const launchyear = 2025;
+        const projectname = "Designing Webpages";
+        let employees = 25;
+        let budget = 100000;
+        let productversion = 1.0;
+        let revenue = 20000;
+
+        // Console outputs
+        console.log("OFFICE LOCATION IS:", officelocation);
+        console.log("STARTUP NAME IS:", startupname);
+        console.log("FOUNDER:", founder);
+        console.log("LAUNCH YEAR:", launchyear);
+        console.log("PROJECT NAME:", projectname);
+        console.log("EMPLOYEES:", employees);
+        console.log("BUDGET:", budget);
+        console.log("VERSION:", productversion);
+        console.log("REVENUE:", revenue);
+
+        // Functions
+        function add(a, b) { return a + b; }
+        const sub = (a, b) => a - b;
+
+        console.log("ADDITION:", add(10, 20));
+        console.log("SUBTRACTION:", sub(30, 20));
+
+        // USERNAME (runs only once)
+        let username = prompt("Enter your name:");
+        alert("Welcome " + username + " to " + startupname + "!");
+
+        // Change startup info text
+        function changetext() {
+            document.getElementById("startupInfo").innerHTML =
+                username + ", welcome to " + startupname +
+                ". We have " + employees +
+                " employees working on " + projectname + ".";
+        }
+
+        // Add dynamic content
+        function addcontent() {
+            document.getElementById("extrasection").innerHTML = `
+                <p><b>BONUS PER YEAR = 2000</b></p>
+                <p style='color:blue'>More features launching soon...</p>
+            `;
+        }
+
+        // Remove dynamic content
+        function removecontent() {
+            document.getElementById("extrasection").innerHTML = "";
+        }
+
+        // Apply styles
+        function applystyles() {
+            let info = document.getElementById("startupInfo");
+            info.style.color = "yellow";
+            info.style.fontSize = "25px";
+            info.style.background = "red";
+            info.style.padding = "15px";
+            info.style.borderRadius = "10px";
+        }
+
+        // Toggle styles
+        function togglestyles() {
+            let info = document.getElementById("startupInfo");
+
+            if (info.style.background === "red") {
+                info.style.background = "black";
+                info.style.color = "white";
+            } else {
+                info.style.background = "red";
+                info.style.color = "yellow";
+            }
+        }
+
+        // Inline style functions
+        function changeColor() {
+            document.getElementById("startupInfo").style.color = "blue";
+        }
+
+        function changeSize() {
+            document.getElementById("startupInfo").style.fontSize = "30px";
+        }
+
+        function changeBackground() {
+            document.getElementById("startupInfo").style.background = "lightgreen";
+        }
+
+        // Mouseover highlight
+        function highlightText() {
+            let text = document.getElementById("startupInfo");
+            text.style.background = "yellow";
+            text.style.fontWeight = "bold";
+        }
+
+        // Mouseout remove highlight
+        function removeHighlight() {
+            let text = document.getElementById("startupInfo");
+            text.style.background = "";
+            text.style.fontWeight = "";
+        }
+
+        // Console log form
+        function logForm(event) {
+            event.preventDefault();
+            let value = document.getElementById("inputBox").value;
+            console.log("Form Submitted! User typed:", value);
+            alert("Form submitted! Check console.");
+        }
+
+        // FIXED VALIDATION FORM (NO RELOAD)
+        function validateForm(event) {
+            event.preventDefault();  // Prevent reload
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let errorMsg = document.getElementById("errorMsg");
+
+            if (name === "") {
+                errorMsg.innerText = "Name cannot be empty!";
+                return;
+            }
+
+            if (email === "") {
+                errorMsg.innerText = "Email cannot be empty!";
+                return;
+            }
+
+            if (!email.includes("@") || !email.includes(".")) {
+                errorMsg.innerText = "Please enter a valid email!";
+                return;
+            }
+
+            errorMsg.innerText = "";
+            alert("Registration Successful!");
+        }
+
+    </script>
+
+</body>
+</html>
