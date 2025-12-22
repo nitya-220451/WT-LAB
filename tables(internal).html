@@ -1,0 +1,92 @@
+<!-- internal css -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table using internal css</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 40px auto;
+            width: 60%;
+            background-color: #ffffff;
+        }
+        h2{
+            text-align: center;
+            color:#333;
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #e6e6e6;
+        }
+
+        tr:hover {
+            background-color: #d1e7ff;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <table>
+        <h2>STUDENT INFO</h2>
+        <tr>
+            <th>NAME</th>
+            <th>BRANCH</th>
+            <th>VILLAGE</th>
+        </tr>
+
+        <tr>
+            <td>Nitya</td>
+            <td>CSE</td>
+            <td>Visakhapatnam</td>
+        </tr>
+
+        <tr>
+            <td>Mounika</td>
+            <td>ECE</td>
+            <td>Anakapalli</td>
+        </tr>
+
+        <tr>
+            <td>Hari</td>
+            <td>CSE</td>
+            <td>Chittor</td>
+        </tr>
+
+        <tr>
+            <td>Likitha</td>
+            <td>ECE</td>
+            <td>Vizag</td>
+        </tr>
+
+        <tr>
+            <td>Neeraja</td>
+            <td>CSE</td>
+            <td>Nuzvid</td>
+        </tr>
+
+        <tr>
+            <td>Charanya</td>
+            <td>CSE</td>
+            <td>Guntur</td>
+        </tr>
+    </table>
+
+</body>
+</html>

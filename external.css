@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+table {
+    border: 5px solid black;
+    border-collapse: separate;
+    border-spacing: 10px;
+    padding: 20px;
+    font-size: 24px; /* makes table text bigger */
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 15px;
+    text-align: center;
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
